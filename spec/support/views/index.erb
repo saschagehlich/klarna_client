@@ -1,0 +1,212 @@
+<div class="panel-group" id="accordion">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Shopping Information</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <form method="post" action="/order" id="create_order_form" class="form-horizontal">
+          <input id="authorization_token" name="authorization_token" type="hidden">
+          <fieldset>
+            <div class="form-group clearfix">
+              <h3 class="col-sm-offset-2 col-sm-10">Billing address</h3>
+              <label class="col-sm-2 control-label">Given name</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[given_name]" value="John"/>
+              </div>
+              <label class="col-sm-2 control-label">Family name</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[family_name]" value="Doe"/>
+              </div>
+              <label class="col-sm-2 control-label">E-mail</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[email]" value="john@example.com"/>
+              </div>
+              <label class="col-sm-2 control-label">Title</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[title]" value="Mr"/>
+              </div>
+              <label class="col-sm-2 control-label">Street address</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[street_address]" value="Lombard St 10"/>
+              </div>
+              <label class="col-sm-2 control-label">Street address 2</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[street_address2]" value="Apt 214"/>
+              </div>
+              <label class="col-sm-2 control-label">Postal code</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[postal_code]" value="90210"/>
+              </div>
+              <label class="col-sm-2 control-label">City</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[city]" value="Beverly Hills"/>
+              </div>
+              <label class="col-sm-2 control-label">Region</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[region]" value="CA"/>
+              </div>
+              <label class="col-sm-2 control-label">Phone</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[phone]" value="1-541-754-3010"/>
+              </div>
+              <label class="col-sm-2 control-label">Country</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="billing_address[country]" value="US"/>
+              </div>
+            </div>
+
+            <div class="form-group clearfix">
+              <h3 class="col-sm-offset-2 col-sm-10">Shipping address</h3>
+              <label class="col-sm-2 control-label">Given name</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[given_name]" value="John"/>
+              </div>
+              <label class="col-sm-2 control-label">Family name</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[family_name]" value="Doe"/>
+              </div>
+              <label class="col-sm-2 control-label">E-mail</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[email]" value="john@example.com"/>
+              </div>
+              <label class="col-sm-2 control-label">Title</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[title]" value="Mr"/>
+              </div>
+              <label class="col-sm-2 control-label">Street address</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[street_address]" value="Lombard St 10"/>
+              </div>
+              <label class="col-sm-2 control-label">Street address 2</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[street_address2]" value="Apt 214"/>
+              </div>
+              <label class="col-sm-2 control-label">Postal code</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[postal_code]" value="90210"/>
+              </div>
+              <label class="col-sm-2 control-label">City</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[city]" value="Beverly Hills"/>
+              </div>
+              <label class="col-sm-2 control-label">Region</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[region]" value="CA"/>
+              </div>
+              <label class="col-sm-2 control-label">Phone</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[phone]" value="1-541-754-3010"/>
+              </div>
+              <label class="col-sm-2 control-label">Country</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="shipping_address[country]" value="US"/>
+              </div>
+            </div>
+            <div class="form-group clearfix">
+              <h3 class="col-sm-offset-2 col-sm-10">Customer</h3>
+              <label class="col-sm-2 control-label">Date of birth</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="customer[date_of_birth]" value="1970­01­01"/>
+              </div>
+              <label class="col-sm-2 control-label">Gender</label>
+              <div class="col-sm-9">
+                <input class="form-control" name="customer[gender]" value="male"/>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+        <div class="col-xs-12">
+          <div class="btn-group pull-right">
+            <button type="button" class="btn btn-default continue">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Create a Session</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse in">
+      <div class="panel-body row">
+          <div class="well col-md-offset-1 col-md-10 session-id" id="session_id"></div>
+          <div class="col-xs-12">
+            <div class="btn-group pull-right">
+              <button class="btn btn-success" id="create_session">New Session</button>
+              <button class="btn btn-danger" id="destroy_session">Destroy Session</button>
+              <button type="button" class="btn btn-default continue">Continue</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Payment Options</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div id="klarna_container"></div>
+
+        <div class="col-xs-12">
+          <div class="btn-group pull-right">
+            <button type="button" id="authorize"  class="btn btn-default continue">Authorize</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+        Result</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div>Success: <span id="success"></span></div>
+
+        <div class="well success">
+          <div>Order id: <span id="order_id"></span></div>
+          <div>Redirect url: <span id="redirect_url"></span></div>
+          <div>Fraud status: <span id="fraud_status"></span></div>
+        </div>
+        <div class="well error">
+          <div>Error code: <span id="error_code"></span></div>
+          <div>Error messages: <span id="error_messages"></span></div>
+          <div>Correlation id: <span id="correlation_id"></span></div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="btn-group pull-right">
+            <button type="button" id="results"  class="btn btn-default continue">Restart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
