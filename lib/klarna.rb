@@ -30,6 +30,8 @@ module Klarna
       Refund.new(configuration)
     when :capture
       Capture.new(configuration)
+    when :token
+      Token.new(configuration)
     end
   end
 end
