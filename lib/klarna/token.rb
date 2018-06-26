@@ -6,7 +6,7 @@ module Klarna
       end
     end
 
-    def create_order(customer_token, data) do |request|
+    def create_order(customer_token, data)
       do_request :post, "/customer-token/v1/tokens/#{customer_token}/order" do |request|
         request.body = data.to_json
       end
