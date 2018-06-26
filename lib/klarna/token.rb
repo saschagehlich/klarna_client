@@ -1,7 +1,7 @@
 module Klarna
   class Token < Client
     def create_token(authorization_token, data)
-      do_request :post, "/credit/v1/authorizations/#{authorization_token}/customer-token" do |request|
+      do_request :post, "/payments/v1/authorizations/#{authorization_token}/customer-token" do |request|
         request.body = data.to_json
       end
     end
