@@ -8,6 +8,7 @@ require "klarna/credit"
 require "klarna/refund"
 require "klarna/token"
 require "klarna/payments"
+require "klarna/payouts"
 
 module Klarna
   class << self
