@@ -27,7 +27,6 @@ module Klarna
           raise "Wrong request type <#{type}>. Allowed [:post, :delete, :get]"
       end
 
-
       request.content_type = "application/json"
       request.basic_auth(@configuration.api_key, @configuration.api_secret)
       if @configuration.user_agent

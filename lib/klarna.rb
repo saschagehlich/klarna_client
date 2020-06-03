@@ -36,6 +36,8 @@ module Klarna
       Token.new(configuration)
     when :payments
       Payments.new(configuration)
+    when :payouts
+      Payouts.new(configuration)
     end
   end
 end
