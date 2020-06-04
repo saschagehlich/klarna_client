@@ -8,6 +8,7 @@ require "klarna/credit"
 require "klarna/refund"
 require "klarna/token"
 require "klarna/payments"
+require "klarna/payouts"
 
 module Klarna
   class << self
@@ -36,6 +37,8 @@ module Klarna
       Token.new(configuration)
     when :payments
       Payments.new(configuration)
+    when :payouts
+      Payouts.new(configuration)
     end
   end
 end
