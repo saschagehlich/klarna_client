@@ -3,8 +3,8 @@ require 'spec_helper'
 module Klarna
   describe Payouts do
     let(:payment_reference) { "ec071a6c-7af6-4528-9485-73eabaa003a3" }
-    let(:from_date) { Time.now.utc }
-    let(:to_date) { Time.now.utc }
+    let(:from_date) { Date.parse("2019-05-01") }
+    let(:to_date) { Date.parse("2019-06-01")}
     let(:payload) do
       {
         start_date: from_date.iso8601,
@@ -25,17 +25,49 @@ module Klarna
       end
     end
 
-    it "retrieves a payout" do
-      Klarna.client(:payouts).payout(payment_reference).tap do |response|
-        expect(response).to be_success
-        expect(response.body["payment_reference"]).to eq(payment_reference)
+    describe "#payout" do
+      it "retrieves a payout" do
+        Klarna.client(:payouts).payout(payment_reference).tap do |response|
+          expect(response).to be_success
+          expect(response.body["payment_reference"]).to eq(payment_reference)
+        end
       end
     end
 
-    it "retrieves a payout summary" do
-      Klarna.client(:payouts).payout_summary(payload).tap do |response|
-        expect(response).to be_success
-        expect(response.body.respond_to?(:[])).to be_truthy
+    describe "#payouts" do
+      let(:size) { 5 }
+      let(:offset) { 1 }
+
+      it "retrieves some payouts" do
+        Klarna.client(:payouts).payouts(payload).tap do |response|
+          expect(response).to be_success
+          expect(response.body["payouts"]).to_not be_nil
+        end
+      end
+
+      it "retrieves some paginated payouts" do
+        payload_with_pagination = payload.merge(
+          {
+            size: size,
+            offset: offset
+          }
+        )
+        Klarna.client(:payouts).payouts(payload_with_pagination).tap do |response|
+          expect(response).to be_success
+          expect(response.body["payouts"]).to_not be_nil
+          expect(response.body["payouts"].count).to eq(size)
+          expect(response.body["pagination"]["count"]).to eq(size)
+          expect(response.body["pagination"]["offset"]).to eq(offset)
+        end
+      end
+    end
+
+    describe "#payout_summary" do
+      it "retrieves a payout summary" do
+        Klarna.client(:payouts).payout_summary(payload).tap do |response|
+          expect(response).to be_success
+          expect(response.body.respond_to?(:[])).to be_truthy
+        end
       end
     end
   end
