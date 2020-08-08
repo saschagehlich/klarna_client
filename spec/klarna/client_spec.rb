@@ -16,7 +16,7 @@ module Klarna
       expect_any_instance_of(Net::HTTP).to receive(:set_debug_output).with(nil).once
       expect_any_instance_of(Net::HTTP).to receive(:request).and_return(OpenStruct.new({code: 123, body: ""}))
 
-      response = Klarna.client(:credit).create_session({})
+      response = Klarna.client(:payments).create_session({})
     end
 
     it "unsets debbug mode by setting http debug output" do
@@ -26,7 +26,7 @@ module Klarna
       expect_any_instance_of(Net::HTTP).not_to receive(:set_debug_output)
       expect_any_instance_of(Net::HTTP).to receive(:request).and_return(OpenStruct.new({code: 123, body: ""}))
 
-      response = Klarna.client(:credit).create_session({})
+      response = Klarna.client(:payments).create_session({})
     end
 
     it "returns an Klarna::Error on failed http request" do
@@ -35,7 +35,7 @@ module Klarna
         config.api_key = "wrong_key"
       end
 
-      Klarna.client(:credit).create_session({}).tap do |response|
+      Klarna.client(:payments).create_session({}).tap do |response|
         expect(response).to be_error
         expect(response.code).to eq(401)
       end
